@@ -1,0 +1,16 @@
+faculty name,category,courses preferences
+faculty1,X1,Course1,Course2,Course3,Course4
+faculty2,X2,Course2,Course4,Course5,Course6,Course7
+faculty3,X3,Course1,Course3,Course5,Course8
+faculty4,X1,Course3,Course5,Course6,Course9,Course10
+faculty5,X2,Course1,Course4,Course5,Course11,Course12,Course13
+faculty6,X3,Course2,Course3,Course7,Course8,Course14
+faculty7,X1,Course4,Course6,Course9,Course11,Course15
+faculty8,X2,Course1,Course3,Course5,Course10,Course12
+faculty9,X3,Course2,Course4,Course6
+faculty10,X1,Course3,Course5,Course7,Course11,Course13,Course14
+faculty11,X2,Course1,Course2,Course4,Course8
+faculty12,X3,Course3,Course5,Course6,Course9,Course10,Course12
+faculty13,X1,Course1,Course4,Course7,Course13
+faculty14,X2,Course2,Course3,Course5,Course6,Course10,Course14
+faculty15,X3,Course1,Course2,Course4,Course9

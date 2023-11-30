@@ -1,0 +1,199 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage[normalem]{ulem}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+A report on
+
+\textbf{\uline{FACULTY COURSE ASSIGNMENT AND OPTIMIZATION}}
+
+\textbf{By: Meghana S Seshasai (2021B5A72517G)}
+
+\textbf{Anushka Sethi (2021B3A71074G)}
+
+\textbf{Chandrika Singh Jadon (2021B1A72939G)}
+
+\textbf{\uline{PROBLEM STATEMENT:}}
+
+The objective of this problem is to develop an assignment scheme that
+maximises the total number of courses assigned to faculty while aligning
+with their given preferences and the category-based constraints ("x1,"
+"x2," "x3").
+
+Faculty in each category are assigned different course loads, with "x1"
+handling 0.5 courses per semester, "x2" taking 1 course per semester,
+and "x3" managing 1.5 courses per semester.
+
+When a course is shared between two professors, each
+professor\textquotesingle s load is considered to be 0.5 courses.
+
+\textbf{\uline{ASSUMPTIONS:}}
+
+\begin{itemize}
+\item
+  We assume that there is no preference order given for the course
+  allotment to the faculty, so we arrange them randomly for allotment.
+\item
+  Each course is present in the preference list of at least 1 faculty.
+\item
+  Each course has to be assigned completely. For e.g. If only 0.5 of a
+  course is assigned to a faculty and the remaining 0.5 cannot be
+  assigned to any other faculty, then this is not a valid assignment.
+\item
+  Each faculty can be assigned less than or equal to their course limit.
+  For e.g. a faculty of category x2 can be assigned a total course load
+  \textless=1.
+\end{itemize}
+
+Here we are maximising the no. of available courses to the students even
+if some of the faculty's load is partial.
+
+\textbf{\uline{LOGIC FOR THE CODE:}}
+
+The input is taken from a CSV file, which has a list of faculty details
+such as their name and preference order of courses.
+
+Since we don't have a given list of courses, we go through the
+preference list of all the faculties and we make a unique list of
+courses. We then make a map having keys as course names and values as
+popularity of the course (the number of times it occurs in the
+preference lists of the faculties).
+
+We also make a list of faculties while going through the CSV file.
+
+Then, we sort the collection of courses in the ascending order of
+popularity. The idea behind this is to assign the less popular courses
+first since they are harder to assign, then the more popular ones can be
+assigned easily. This maximises the total number of courses which can be
+taken in a semester.
+
+Now, we create a local list of faculties and courses. The list of
+faculties is shuffled randomly so that we get a new sequence of
+faculties for every assignment.
+
+We start with the first course that is the least popular course and take
+the first faculty from the shuffled list of faculties. We see which
+category the faculty belongs to, check the number of empty slots that
+they have and assign the course accordingly.
+
+Every assignment of the course to the faculty is 0.5. For an X2 faculty,
+who has 2 empty slots, the assignment is done twice and the course load
+becomes 1.
+
+Then we repeat the sequence of steps for the rest of the courses in the
+local course list. Thus, we complete one iteration of valid assignment.
+100 such iterations are carried out and stored in the Faculty-Course
+Assignment list. This list is sorted in descending order of total number
+of courses assigned in that iteration.
+
+We take the first element of this list i.e. the one with the maximum
+number of courses allotted. This will be the best possible assignment
+and hence it is printed as the output.
+
+\textbf{\uline{INPUT :}}
+
+\includegraphics[width=5.26389in,height=3.05883in]{vertopal_470a31d8435c43d59c1921e113499bf5/media/image1.png}
+
+This is the input csv file.
+
+\textbf{\uline{OUTPUT:}}
+
+\includegraphics[width=5.4375in,height=2.55153in]{vertopal_470a31d8435c43d59c1921e113499bf5/media/image2.png}
+
+The is the output obtained on the terminal on running the CourseAssign
+file.
+
+Here, a partial assignment is an assignment of course Load = 0.5
+
+A full assignment is an assignment of course Load = 1
+
+\textbf{\uline{FUTURE SCOPE:}}
+
+\begin{itemize}
+\item
+  Creating categories for courses such as core courses, electives and
+  minor courses.
+\end{itemize}
+
+Core courses should not remain unassigned.
+
+\begin{itemize}
+\item
+  Extending the number of professor categories beyond the existing three
+  such as assistant and associate professors.
+\item
+  Creating a separate list of courses for even and odd semesters and
+  courses which are offered during the entire year.
+\item
+  Implementing features that allow the system to adapt dynamically to
+  changes, such as new faculty members, course cancellations, or
+  unexpected faculty unavailability.
+\item
+  Evaluate different existing optimization algorithms or heuristics to
+  solve the assignment problem more efficiently.
+\end{itemize}
+
+\end{document}

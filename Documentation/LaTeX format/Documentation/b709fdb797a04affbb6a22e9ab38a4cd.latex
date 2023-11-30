@@ -1,0 +1,122 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage[normalem]{ulem}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\textbf{\uline{DOCUMENTATION:}}
+
+\textbf{By: Meghana S Seshasai (2021B5A72517G)}
+
+\textbf{Anushka Sethi (2021B3A71074G)}
+
+\textbf{Chandrika Singh Jadon (2021B1A72939G)}
+
+\textbf{Case 1:}
+
+\textbf{\uline{Input:}}
+
+Number of courses = 15
+
+Number of faculty = 15
+
+\includegraphics[width=6.26806in,height=3.82986in]{vertopal_b709fdb797a04affbb6a22e9ab38a4cd/media/image1.png}
+
+\textbf{\uline{Output:}}
+
+\includegraphics[width=6.26806in,height=2.96181in]{vertopal_b709fdb797a04affbb6a22e9ab38a4cd/media/image2.png}
+
+\textbf{Case 2:}
+
+\textbf{\uline{Input:}}
+
+Number of courses = 10
+
+Number of faculty = 15
+
+\includegraphics[width=6.26806in,height=3.26806in]{vertopal_b709fdb797a04affbb6a22e9ab38a4cd/media/image3.png}
+
+\textbf{\uline{Output:}}
+
+\includegraphics[width=6.26806in,height=2.48958in]{vertopal_b709fdb797a04affbb6a22e9ab38a4cd/media/image4.png}
+
+All courses are assigned, some faculties aren't assigned anything
+because there aren't enough courses to assign.
+
+\textbf{Case 3:}
+
+\textbf{\uline{Input:}}
+
+Number of courses = 10
+
+Number of faculty = 5
+
+\includegraphics[width=6in,height=1.97363in]{vertopal_b709fdb797a04affbb6a22e9ab38a4cd/media/image5.png}
+
+\textbf{\uline{Output:}}
+
+\includegraphics[width=6.26806in,height=1.12847in]{vertopal_b709fdb797a04affbb6a22e9ab38a4cd/media/image6.png}
+
+\end{document}
